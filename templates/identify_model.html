@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:46 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>数据展示</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon"> <link href="/static/hplus/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/hplus/css/bootstrap.min.css">
+    <link href="/static/hplus/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <!-- Morris -->
+    <link href="/static/hplus/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="/static/hplus/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="/static/hplus/css/animate.min.css" rel="stylesheet">
+    <link href="/static/hplus/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+{#    Highcharts#}
+    <script src="http://code.hcharts.cn/highcharts/10.0.0/highcharts.js"></script>
+    <script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="http://cdn.hcharts.cn/highcharts/modules/heatmap.js"></script>
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">1</span>
+                        <h5>Test accuracy with model:</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ acc_values.0 }}</h1>
+                        </div>
+
+                    </div>
+                </div>
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">2</span>
+                        <h5>Test accuracy with model tf lite:</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ acc_values.1}}</h1>
+{#                        <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i>#}
+                        </div>
+{#                        <small>新订单</small>#}
+                    </div>
+                </div>
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">3</span>
+                        <h5>Test accuracy with model quantized:</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ acc_values.2}}</h1>
+{#                        <small>新访客</small>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="height: 500px" >
+            <div class="col-sm-6" >
+                <div class="ibox float-e-margins" >
+                    <div class="ibox-title" >
+                        <h5>损失函数图</h5>
+                    </div>
+                    <div class="ibox-content" style="height: 400px;">
+                         <div class="flot-chart"  >
+                                 <div id="container" style="max-width:600px;height:300px;"></div>
+                             <style>
+                                  #container {
+                                        max-width: 600px;
+                                        height: 300px;
+                                        margin: auto;
+                                        display: block;
+                                  }
+                             </style>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" >
+                <div class="ibox float-e-margins" >
+                    <div class="ibox-title" >
+                        <h5>类群分布图</h5>
+                    </div>
+                    <div class="ibox-content" style="height: 400px">
+                        <div class="flot-chart">
+                            <div id="container2" style="max-width:600px;height:300px"></div>
+                            <style>
+                                  #container2 {
+                                        max-width: 600px;
+                                        height: 300px;
+                                        margin: auto;
+                                        display: block;
+                                  }
+                             </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="row" style="height: 500px" >
+            <div class="col-sm-6" >
+                <div class="ibox float-e-margins" >
+                    <div class="ibox-title" >
+                        <h5>混淆矩阵</h5>
+                    </div>
+                    <div class="ibox-content" style="height: 400px">
+                        <div class="flot-chart">
+                                    <div id="container3" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+                                    <style>
+                                  #container3 {
+                                        max-width: 600px;
+                                        height: 300px;
+                                        margin: auto;
+                                        display: block;
+                                  }
+                             </style>
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" >
+                <div class="ibox float-e-margins" >
+                    <div class="ibox-title" >
+                        <h5>系统操作</h5>
+                    </div>
+                    <div class="ibox-content" style="height: 400px;display: flex; justify-content: center; align-items: center;">
+                        <button type="button" class="btn btn-primary btn-lg" style="display: block; margin: 0 auto;" onclick="return_index()">返回首页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:49 GMT -->
+</html>
+<script>
+    var data_1 = {{ chart_values.1 }};
+    var data_2 = {{ chart_values.2 }};
+    var data_3 = {{ data }};
+
+    let arr = [];
+    console.log(data_3[0].length);
+    for(let i=0;i<data_3[0].length;i++){
+        arr[i] = (i+1) + "";
+    }
+    var chart = Highcharts.chart('container', {
+	title: {
+		text: '损失函数趋势图'
+	},
+	subtitle: {
+		text: '数据来源：数据集'
+	},
+	yAxis: {
+		title: {
+			text: '值'
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle'
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+			pointStart: 1
+		}
+	},
+	series: [{
+		name: 'loss',
+		data: data_1
+	}, {
+		name: 'val_loss',
+		data: data_2
+	}],
+	responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 600
+			},
+			chartOptions: {
+				legend: {
+					layout: 'horizontal',
+					align: 'center',
+					verticalAlign: 'bottom'
+				}
+			}
+		}]
+	}
+});
+
+     var chart3 = Highcharts.chart('container2',{
+	chart: {
+		type: 'column'
+	},
+	title: {
+		text: '类群分布图'
+	},
+	subtitle: {
+		text: ''
+	},
+	xAxis: {
+		categories: {{ yp }},
+		crosshair: true
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: '数量 '
+		}
+	},
+	tooltip: {
+		// head + 每个 point + footer 拼接成完整的 table
+		headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+		footerFormat: '</table>',
+		shared: true,
+		useHTML: true
+	},
+	plotOptions: {
+		column: {
+			borderWidth: 0
+		}
+	},
+	series: [{
+		name: '识别',
+		data: {{ counter }}
+	}]
+});
+
+    Highcharts.chart('container3', {
+    chart: {
+        type: 'heatmap',
+    },
+    title: {
+        text: 'Confusion Matrix'
+    },
+    xAxis: {
+        categories: arr
+    },
+    yAxis: {
+        categories: arr
+    },
+    colorAxis: {
+        min: 0,
+        minColor: '#FFFFFF',
+        maxColor: Highcharts.getOptions().colors[0]
+    },
+    series: [{
+        name: 'Confusion Matrix',
+        borderWidth: 1,
+        data: data_3,
+        dataLabels: {
+            enabled: true,
+            color: '#000000'
+        }
+    }]
+});
+    function return_index() {
+        console.log("我在触发！！！！！");
+        window.location.href = "{% url 'index' %}"
+    }
+</script>

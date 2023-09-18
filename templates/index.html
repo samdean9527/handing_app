@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:49 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>车牌识别计费系统--登录</title>
+    <link href="{% static "hplus/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "hplus/css/font-awesome.min93e3.css" %}?v=4.4.0" rel="stylesheet">
+    <link href="{% static "hplus/css/animate.min.css" %}" rel="stylesheet">
+    <link href="{% static "hplus/css/style.min.css" %}" rel="stylesheet">
+    <link href="{% static "hplus/css/login.min.css" %}" rel="stylesheet">
+
+
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="signin-info" style="color: black">
+                    <div class="logopanel m-b" style="color: black">
+                        <h1 class="row" style="font-size: 90px; white-space:nowrap"><b>欢迎使用手势识别系统</b></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <div class="signup-footer" style="width: 900px;height: 40px">
+            <a href="{% url 'upload_files' %}">
+                <button  class="btn btn-block btn-outline btn-primary" type="button" style="height: 64px"><i class="glyphicon glyphicon-hand-right"></i>&nbsp;&nbsp;进入系统</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:52 GMT -->
+</html>
+<script>
+    function jump(value){
+        console.log(value);
+        window.location.href=value;
+    }
+</script>
+
